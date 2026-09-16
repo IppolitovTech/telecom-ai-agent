@@ -1,3 +1,4 @@
+import logging
 from contextlib import asynccontextmanager
 
 import anyio
@@ -8,6 +9,10 @@ from api.chat import router as chat_router
 from api.upload import router as upload_router
 from config import get_settings
 from rag.ingest import ingest_all
+
+# agent/router.py logs one JSON object per line (session_id, intent, timings) —
+# plain `%(message)s` keeps that JSON unwrapped by a text prefix.
+logging.basicConfig(level=logging.INFO, format="%(message)s")
 
 
 @asynccontextmanager

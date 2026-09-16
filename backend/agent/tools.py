@@ -1,0 +1,48 @@
+from typing import Callable, Literal
+
+from data.orders import get_order
+from data.tickets import create_ticket as create_ticket_record
+
+ToolName = Literal["check_order_status", "create_ticket"]
+
+_STATUS_LABELS = {
+    "scheduled": "запланирована",
+    "in_progress": "выполняется",
+    "completed": "выполнена",
+}
+
+
+def check_order_status(order_id: str) -> str:
+    order = get_order(order_id)
+    if order is None:
+        return f"Заявка с номером {order_id} не найдена."
+
+    label = _STATUS_LABELS.get(order["status"], order["status"])
+    parts = [f"Заявка {order_id}: статус — {label}."]
+    if order["eta"]:
+        parts.append(f"Плановая дата: {order['eta']}.")
+    if order["technician"]:
+        parts.append(f"Назначен специалист: {order['technician']}.")
+    return " ".join(parts)
+
+
+def create_ticket(topic: str) -> str:
+    ticket = create_ticket_record(topic)
+    return f"Тикет {ticket['id']} создан по теме «{topic}»."
+
+
+TOOLS: dict[ToolName, Callable[..., str]] = {
+    "check_order_status": check_order_status,
+    "create_ticket": create_ticket,
+}
+
+TOOL_ARG_NAMES: dict[ToolName, str] = {
+    "check_order_status": "order_id",
+    "create_ticket": "topic",
+}
+
+
+def call_tool(tool_name: ToolName, tool_args: dict) -> str:
+    arg_name = TOOL_ARG_NAMES[tool_name]
+    arg_value = tool_args.get(arg_name, "")
+    return TOOLS[tool_name](arg_value)
