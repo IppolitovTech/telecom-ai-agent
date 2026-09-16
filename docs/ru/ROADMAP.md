@@ -79,17 +79,17 @@
 
 ### Этап 5. Фронтенд на React (50–70 мин)
 
-- [ ] Чат: список сообщений, инпут, отправка, индикатор загрузки
-- [ ] Явные состояния `idle | loading | error`, блокировка кнопки отправки (`isSubmitting`), таймаут запроса через `AbortController`
-- [ ] `session_id` в localStorage
-- [ ] Блок «Agent activity» (только факт оркестрации, без внутренних рассуждений модели):
+- [x] Чат: список сообщений, инпут, отправка, индикатор загрузки
+- [x] Явные состояния `idle | loading | error`, блокировка кнопки отправки (`isSubmitting`), таймаут запроса через `AbortController`
+- [x] `session_id` в localStorage
+- [x] Блок «Agent activity» (только факт оркестрации, без внутренних рассуждений модели):
 ```
 Agent activity
 ✓ Retrieved 4 relevant documents
 ✓ Called check_order_status
 ✓ Generated response
 ```
-- [ ] Блок источников под ответом:
+- [x] Блок источников под ответом:
 ```
 Ответ основан на:
 — Tariffs & Plans — section 3

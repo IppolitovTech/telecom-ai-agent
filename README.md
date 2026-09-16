@@ -13,6 +13,20 @@ For complex requests where it isn't known upfront whether document search, a too
 both will be needed, the agent uses a custom ReAct loop with a hard iteration limit,
 implemented without third-party agent frameworks.
 
+## Running locally
+
+Backend (from `backend/`, with the virtual environment activated):
+
+```powershell
+uvicorn main:app --reload
+```
+
+Frontend (from `frontend/`):
+
+```powershell
+npm run dev
+```
+
 ## Language
 
 - All code — identifiers, comments, commit messages, error messages,
