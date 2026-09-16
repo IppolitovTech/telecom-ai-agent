@@ -20,6 +20,10 @@ class Settings(BaseSettings):
     hf_home: str = str(BACKEND_DIR / ".cache" / "huggingface")
     knowledge_dir: Path = BACKEND_DIR.parent / "knowledge"
 
+    embedding_model: str = "intfloat/multilingual-e5-small"
+    chroma_dir: Path = BACKEND_DIR / "chroma_data"
+    retrieval_k: int = 4
+
     cors_origins: list[str] = ["http://localhost:5173"]
 
 
