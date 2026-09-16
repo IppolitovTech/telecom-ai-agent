@@ -163,6 +163,7 @@ def handle_chat(request: ChatRequest) -> ChatResponse:
     session_id = request.session_id
     message = request.message
     history = get_history(session_id)
+    request_start = time.perf_counter()
 
     try:
         start = time.perf_counter()
@@ -191,10 +192,16 @@ def handle_chat(request: ChatRequest) -> ChatResponse:
 
         append_turn(session_id, "user", message)
         append_turn(session_id, "assistant", reply)
+        total_ms = round((time.perf_counter() - request_start) * 1000)
+        _log("chat_completed", session_id, intent=classification.intent, total_ms=total_ms)
         return ChatResponse(reply=reply, tool_calls=tool_calls, sources=sources)
 
     except Exception:
-        logger.error(json.dumps({"event": "chat_failed", "session_id": session_id}), exc_info=True)
+        total_ms = round((time.perf_counter() - request_start) * 1000)
+        logger.error(
+            json.dumps({"event": "chat_failed", "session_id": session_id, "total_ms": total_ms}, ensure_ascii=False),
+            exc_info=True,
+        )
         return ChatResponse(
             reply="Извините, произошла временная ошибка. Попробуйте, пожалуйста, ещё раз чуть позже.",
             error=True,

@@ -47,7 +47,3 @@ def format_history(history: list[dict[str, str]]) -> str:
     if not history:
         return "(история пуста)"
     return "\n".join(f"{turn['role']}: {turn['content']}" for turn in history)
-
-
-def format_context_block(label: str, text: str) -> str:
-    return f"--- {label} ---\n{text}"

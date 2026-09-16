@@ -1,8 +1,11 @@
+import logging
 from dataclasses import dataclass
 
 from config import get_settings
 from rag.embeddings import embed_query
 from rag.vector_store import get_collection
+
+logger = logging.getLogger(__name__)
 
 
 @dataclass
@@ -17,6 +20,7 @@ def retrieve(query: str, k: int | None = None) -> list[RetrievedChunk]:
     collection = get_collection()
     count = collection.count()
     if count == 0:
+        logger.warning("retriever: collection is empty, skipping search for %r", query)
         return []
 
     result = collection.query(
@@ -24,7 +28,7 @@ def retrieve(query: str, k: int | None = None) -> list[RetrievedChunk]:
         n_results=min(k or get_settings().retrieval_k, count),
     )
 
-    return [
+    chunks = [
         RetrievedChunk(
             document=metadata["document"],
             chunk=metadata["chunk"],
@@ -35,3 +39,10 @@ def retrieve(query: str, k: int | None = None) -> list[RetrievedChunk]:
             result["documents"][0], result["metadatas"][0], result["distances"][0]
         )
     ]
+    logger.info(
+        "retriever: query=%r hits=%d results=%s",
+        query,
+        len(chunks),
+        [(c.document, c.chunk, round(c.score, 4)) for c in chunks],
+    )
+    return chunks

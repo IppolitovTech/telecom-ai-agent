@@ -29,6 +29,7 @@ def ingest_file(path: Path) -> int:
     if path.suffix.lower() not in _TEXT_SUFFIXES:
         # /api/upload accepts arbitrary files; only text/markdown knowledge
         # docs are indexable, so anything else is stored but not searched.
+        logger.info("ingest: %s skipped (unsupported suffix %s)", path.name, path.suffix)
         return 0
 
     text = path.read_text(encoding="utf-8")
@@ -56,7 +57,9 @@ def ingest_file(path: Path) -> int:
 
 def ingest_all() -> int:
     knowledge_dir = get_settings().knowledge_dir
-    total = sum(ingest_file(path) for path in sorted(knowledge_dir.glob("*.md")))
+    paths = sorted(knowledge_dir.glob("*.md"))
+    logger.info("ingest: found %d file(s) in %s", len(paths), knowledge_dir)
+    total = sum(ingest_file(path) for path in paths)
     logger.info("ingest: %d chunks total", total)
     return total
 
