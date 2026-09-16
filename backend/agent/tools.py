@@ -1,5 +1,6 @@
 import logging
-from typing import Callable, Literal
+from collections.abc import Callable
+from typing import Literal
 
 from data.orders import get_order
 from data.tickets import create_ticket as create_ticket_record

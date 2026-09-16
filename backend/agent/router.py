@@ -198,9 +198,8 @@ def handle_chat(request: ChatRequest) -> ChatResponse:
 
     except Exception:
         total_ms = round((time.perf_counter() - request_start) * 1000)
-        logger.error(
+        logger.exception(
             json.dumps({"event": "chat_failed", "session_id": session_id, "total_ms": total_ms}, ensure_ascii=False),
-            exc_info=True,
         )
         return ChatResponse(
             reply="Извините, произошла временная ошибка. Попробуйте, пожалуйста, ещё раз чуть позже.",

@@ -8,7 +8,7 @@ services:
     volumes:
       - hf_cache:/app/.cache/huggingface
       - chroma_data:/app/chroma_data
-      - ./knowledge:/app/knowledge
+      - ./knowledge:/knowledge
 
   frontend:
     build: ./frontend

@@ -8,7 +8,7 @@ from config import get_settings
 # `sentence_transformers` import below pulls it in transitively.
 os.environ.setdefault("HF_HOME", get_settings().hf_home)
 
-from sentence_transformers import SentenceTransformer  # noqa: E402
+from sentence_transformers import SentenceTransformer
 
 logger = logging.getLogger(__name__)
 

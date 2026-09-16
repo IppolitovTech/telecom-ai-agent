@@ -128,9 +128,9 @@ Retrieval accuracy: 90%
 
 ### Этап 7. Докеризация и деплой (30–60 мин)
 
-- [ ] Dockerfile для backend и frontend, docker-compose.yml
-- [ ] Проверка полного запуска через `docker compose up`
-- [ ] Минимальный CI (GitHub Actions): один workflow — lint + прогон `evaluation/run.py` при пуше в main
+- [x] Dockerfile для backend и frontend, docker-compose.yml
+- [x] Проверка полного запуска через `docker compose up`
+- [x] Минимальный CI (GitHub Actions): один workflow — lint + прогон `evaluation/run.py` при пуше в main
 
 > Облачный деплой (Render/Railway) — факультативно: PyTorch-эмбеддинги легко выходят за 512 MB RAM бесплатных тарифов. Достаточно видео/gif + `docker compose up` вживую при необходимости.
 
