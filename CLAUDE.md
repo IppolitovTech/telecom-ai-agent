@@ -40,3 +40,8 @@ Practical implication: if you're editing an endpoint and reach for an `if` with 
 ## MVP boundaries
 
 Don't propose or add anything listed under "What we deliberately skip" in ROADMAP.md (auth, Kubernetes, Redis/Postgres for memory, Celery/Kafka, streaming, multi-agent, etc.) unless explicitly asked.
+
+## Git & Version Control Rules
+- **NEVER** create git commits, pushes, or merges automatically.
+- **NEVER** run `git commit` or `git push` commands without explicit user permission in the chat.
+- Always ask for review and approval before executing any command that modifies the git history.

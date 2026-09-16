@@ -14,11 +14,11 @@
 
 ### Этап 1. Backend-скелет (30–40 мин)
 
-- [ ] `POST /api/chat` — принимает `{message, session_id}`, пока заглушка
-- [ ] `POST /api/upload` — принимает файл, сохраняет в `knowledge/`
-- [ ] Структура папок как в ARCHITECTURE.md (`api/`, `agent/`, `rag/`, `models/`)
-- [ ] `agent/llm.py` — фабрика `get_llm()`: по `settings.llm_provider` возвращает `ChatOpenAI(base_url="https://openrouter.ai/api/v1")` (OpenRouter, бесплатная модель с поддержкой tool calling, напр. `deepseek/deepseek-chat`) или `ChatAnthropic` — переключение только через `.env`, без правок кода в `agent/`
-- [ ] CORS
+- [x] `POST /api/chat` — принимает `{message, session_id}`, пока заглушка
+- [x] `POST /api/upload` — принимает файл, сохраняет в `knowledge/`
+- [x] Структура папок как в ARCHITECTURE.md (`api/`, `agent/`, `rag/`, `models/`)
+- [x] `agent/llm.py` — фабрика `get_llm()`: по `settings.llm_provider` возвращает `ChatOpenAI(base_url="https://openrouter.ai/api/v1")` (OpenRouter, бесплатная модель с поддержкой tool calling, напр. `deepseek/deepseek-chat`) или `ChatAnthropic` — переключение только через `.env`, без правок кода в `agent/`
+- [x] CORS
 
 **Готово, когда:** curl/Postman к обоим эндпоинтам возвращают корректный JSON.
 
