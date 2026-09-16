@@ -15,3 +15,6 @@ node_modules/
 
 # Vector store data
 chroma_data/
+
+# HuggingFace model cache (local, non-Docker runs)
+.cache/

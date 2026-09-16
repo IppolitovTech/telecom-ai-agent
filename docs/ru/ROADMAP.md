@@ -2,11 +2,11 @@
 
 ### Этап 0. Подготовка окружения (20–30 мин)
 
-- [ ] Репозиторий по структуре из [ARCHITECTURE.md](ARCHITECTURE.md)
-- [ ] `.env` с `LLM_PROVIDER` (`openrouter` для тестов на бесплатной модели / `anthropic` позже), `OPENROUTER_API_KEY`, `ANTHROPIC_API_KEY`
-- [ ] Python 3.11+, Node 18+, FastAPI, React + TypeScript (Vite)
-- [ ] Положить в `knowledge/` три документа под тематику ШПД-провайдера: `tariffs.md`, `router-setup.md`, `troubleshooting.md`
-- [ ] `.env.example` и смонтированный Docker volume для кэша HuggingFace (`HF_HOME`), чтобы модель не скачивалась заново при каждом рестарте
+- [x] Репозиторий по структуре из [ARCHITECTURE.md](ARCHITECTURE.md)
+- [x] `.env` с `LLM_PROVIDER` (`openrouter` для тестов на бесплатной модели / `anthropic` позже), `OPENROUTER_API_KEY`, `ANTHROPIC_API_KEY`
+- [x] Python 3.11+, Node 18+, FastAPI, React + TypeScript (Vite)
+- [x] Положить в `knowledge/` три документа под тематику ШПД-провайдера: `tariffs.md`, `router-setup.md`, `troubleshooting.md`
+- [x] `.env.example` и смонтированный Docker volume для кэша HuggingFace (`HF_HOME`), чтобы модель не скачивалась заново при каждом рестарте
 
 **Готово, когда:** оба проекта запускаются локально пустыми.
 
