@@ -33,6 +33,9 @@ class Settings(BaseSettings):
     # and each retry waits the *full* timeout again — 3x llm_timeout_s in the
     # worst case. One retry keeps a single stalled call bounded to ~2x llm_timeout_s.
     llm_max_retries: int = 1
+    # None keeps the provider's own default. evaluation/run.py sets this to 0
+    # (via the LLM_TEMPERATURE env var) so eval runs are deterministic.
+    llm_temperature: float | None = None
 
     cors_origins: list[str] = ["http://localhost:5173"]
 

@@ -1,0 +1,15 @@
+[
+  { "question": "Как сменить тариф?", "expected_source": "tariffs.md" },
+  { "question": "Сколько стоит тариф Максимум и что в него входит?", "expected_source": "tariffs.md" },
+  { "question": "Какая скидка предоставляется новым клиентам при подключении?", "expected_source": "tariffs.md" },
+  { "question": "Какими способами можно оплатить интернет?", "expected_source": "tariffs.md" },
+  { "question": "Как настроить VLAN на MikroTik?", "expected_source": "router-setup.md" },
+  { "question": "Какой адрес нужно открыть в браузере для входа в настройки роутера?", "expected_source": "router-setup.md" },
+  { "question": "Как настроить проброс портов для камеры видеонаблюдения?", "expected_source": "router-setup.md" },
+  { "question": "Что делать при полном отсутствии сигнала?", "expected_source": "troubleshooting.md" },
+  { "question": "Что делать, если скорость интернета ниже заявленной по тарифу?", "expected_source": "troubleshooting.md" },
+  { "question": "В каких случаях нужно вызывать мастера, а в каких нет?", "expected_source": "troubleshooting.md" },
+  { "question": "Какая завтра погода в Париже?", "expected_source": null },
+  { "question": "Расскажи анекдот про программиста", "expected_source": null },
+  { "question": "Сколько будет 2 плюс 2?", "expected_source": null }
+]

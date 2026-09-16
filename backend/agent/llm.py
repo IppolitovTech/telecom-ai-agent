@@ -11,6 +11,7 @@ logger = logging.getLogger(__name__)
 
 def get_llm() -> BaseChatModel:
     settings = get_settings()
+    temperature_kwargs = {} if settings.llm_temperature is None else {"temperature": settings.llm_temperature}
 
     if settings.llm_provider == "anthropic":
         if not settings.anthropic_api_key:
@@ -21,6 +22,7 @@ def get_llm() -> BaseChatModel:
             api_key=settings.anthropic_api_key,
             timeout=settings.llm_timeout_s,
             max_retries=settings.llm_max_retries,
+            **temperature_kwargs,
         )
 
     if not settings.openrouter_api_key:
@@ -32,4 +34,5 @@ def get_llm() -> BaseChatModel:
         api_key=settings.openrouter_api_key,
         timeout=settings.llm_timeout_s,
         max_retries=settings.llm_max_retries,
+        **temperature_kwargs,
     )

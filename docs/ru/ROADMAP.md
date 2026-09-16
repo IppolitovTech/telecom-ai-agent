@@ -104,7 +104,7 @@ Agent activity
 
 Отдельный, самый недооценённый шаг — то, что реально отличает «поиграл с RAG» от «проверил, что RAG работает».
 
-- [ ] `evaluation/questions.json`:
+- [x] `evaluation/questions.json`:
 ```json
 [
   { "question": "Как сменить тариф?", "expected_source": "tariffs.md" },
@@ -112,10 +112,10 @@ Agent activity
   { "question": "Как настроить VLAN на MikroTik?", "expected_source": "router-setup.md" }
 ]
 ```
-- [ ] `evaluation/run.py` — прогоняет вопросы через `retriever.retrieve()`, сравнивает топ-1 источник с `expected_source`, считает accuracy
-- [ ] `temperature=0` в скрипте прогона для детерминированности результатов
-- [ ] Негативные тесты в `questions.json` (out-of-domain вопросы) — проверка, что агент не выдумывает источник вместо честного «не нашёл»
-- [ ] Вывод скрипта:
+- [x] `evaluation/run.py` — прогоняет вопросы через `retriever.retrieve()`, сравнивает топ-1 источник с `expected_source`, считает accuracy
+- [x] `temperature=0` в скрипте прогона для детерминированности результатов
+- [x] Негативные тесты в `questions.json` (out-of-domain вопросы) — проверка, что агент не выдумывает источник вместо честного «не нашёл»
+- [x] Вывод скрипта:
 ```
 Questions: 10
 Correct source retrieved: 9/10
